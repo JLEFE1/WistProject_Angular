@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="scripts/script.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <meta charset="utf-8">
+    <title>Whist</title>
+</head>
+    
+<body>
+    <h1>Whist</h1>
+
+    <div id="startNewGameBlock">
+        <input id="startNewGameButton" class="button" type="text" name="startNewGame" value="Start new game" readonly="readonly"></input>
+    </div>
+
+    <div id="addPlayersBlock">
+        <h3>Add players to game</h3>
+        <input id="addPlayer" type="text" name="addPlayer" placeholder="Add player"></input>
+
+        <input id="playerButton" class="button" type="text" name="printPlayer" value="Add player" readonly="readonly"></input>
+
+        <input id="clearPlayersButton" class="button" type="text" name="clearPlayers" value="Clear players" readonly="readonly"></input>
+
+        <ul id="players"></ul>
+
+        <input id="startGameButton" class="button unclickable" type="text" name="startGame" value="Start game" readonly="readonly"></input>
+    </div>
+
+    <div id="rankingBlock" class="hidden">
+        <h3>Ranking</h3>
+
+    <div id="pointsInput"></div>
+          <input id="addPointsButton" class="button" type="text" name="addPoints" value="Add points" readonly="readonly"></input>
+
+        <table id="rankingTable">
+            <thead id=rankingTableHeader></thead>
+            <tbody id=rankingTableBody></tbody>
+        </table>
+    </div>
+</body>
+</html>

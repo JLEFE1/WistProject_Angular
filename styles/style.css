@@ -1,0 +1,34 @@
+
+.button{
+    border-style:solid;
+    border-color:#D4D4D4;
+    border-radius:1em;
+    text-align: center;
+    background-color:#D4D4D4;
+  
+}
+
+.unclickable{
+    background-color:#E1E2DF;
+}
+
+th{
+    background-color:#E1E2DF;
+}
+
+.pointInput{
+    background-color:#E1E2DF;
+}
+
+.invisible{
+    background-color:#E1E2DF;
+    background-color:#FFFFFF;
+    border-style:solid;
+    border-color:#FFFFFF;
+}
+
+.total{
+    text-align: center;
+    color:coral;
+    font-style: oblique;
+}
