@@ -2,6 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33b5330c-c98b-4cb0-8ebe-0de3d8f29e81" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/whist1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DemoApp.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/npm-debug.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/app/js/controllers/startGameController.js" afterPath="$PROJECT_DIR$/app/js/controllers/StartGameController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Main.html" afterPath="$PROJECT_DIR$/app/Main.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/app.js" afterPath="$PROJECT_DIR$/app/js/app.js" />
@@ -531,12 +541,12 @@
       <created>1433341662849</created>
       <option name="number" value="Default" />
       <updated>1433341662849</updated>
-      <workItem from="1433341664336" duration="4091000" />
+      <workItem from="1433341664336" duration="4179000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4091000" />
+    <option name="totallyTimeSpent" value="4179000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1400" height="877" extended-state="6" />
