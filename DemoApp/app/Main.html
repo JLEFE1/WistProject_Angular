@@ -19,30 +19,74 @@
 
              <img ng-src="{{titleObject.imageUrl}}">
 
-             <div class="row" ng-hide="createGame">
-                 <div class="spann11">
+             <div class="row" ng-hide="createGameBool">
+                 <div class="span11">
                      <h2>Want to play a Game?</h2>
                  </div>
 
              </div>
-             <button id="startNewGame" data-ng-click="startNewGame()" ng-hide="createGame">Start new game</button>
+             <button type="button" class="btn btn-default" id="startNewGame" data-ng-click="startNewGame()" ng-hide="createGameBool">Start new game</button>
 
-             <div class="row" ng-hide="!createGame">
+             <div class="row" ng-hide="!createGameBool">
                  <div class="span11">
                      <h2>Add players</h2>
                  </div>
 
              </div>
 
-             <div ng-repeat="player in players" ng-hide="!createGame">
-                 <div class="span11">
-                     <h2>{{player.name}}</h2>
-                 </div>
+             <form name="addPlayerForm">
+                 <fieldset>
+                     <div ng-repeat="player in players" ng-hide="!createGameBool">
+                         <div class="span11">
+                             <h5>{{player.name}}</h5>
+                         </div>
 
+                     </div>
+                     <input type="text" required placeholder="Add player" ng-hide="!createGameBool" ng-model="name">
+                     <button type="submit" class="btn btn-default" id="addPlayer" data-ng-click="addNewPlayer(addPlayerForm)" ng-hide="!createGameBool">Add new player</button>
+                     <button type="button" class="btn btn-default" id="startGame" data-ng-click="startGame()" ng-show="startGameBool">Start game</button>
+                 </fieldset>
+             </form>
+
+
+             <div id="resultTableDiv" ng-show="showResultsBool">
+
+                 <table id="addPointsTable">
+                     <tbody id="addPointsTableBody">
+                     <tr>
+                         <div class="span5"><td></td></div>
+                         <td ng-repeat="player in players track by $index">
+                             <input type="number" value=0 class="pointInput" name= "{{player.playerIndex}}">
+                         </td>
+                     </tr>
+
+                     </tbody>
+                 </table>
+                 <button type="button" class="btn btn-default" id="addPoints" data-ng-click="addPoints()">Add points</button>
+
+
+
+                <table id="resultTable">
+                    <thead id="resultTableHeader">
+                        <tr>
+                            <th>Nbr.</th>
+                            <th ng-repeat="player in players">{{player.name}}</th>
+                        </tr>
+
+                    </thead>
+                    <tbody id="resultTableBody">
+                    <tr>
+                        <th>Total</th>
+                        <th ng-repeat="points in total track by $index">{{points}}</th>
+                    </tr>
+                    <tr ng-repeat="rankingRow in ranking track by $index">
+                        <th>{{$index + 1}}</th>
+                        <th ng-repeat="point in rankingRow.points track by $index">{{point}}</th>
+                    </tr>
+
+                    </tbody>
+                </table>
              </div>
-             <input type="text" placeholder="Add player" ng-hide="!createGame" ng-model="name">
-             <button id="addPlayer" data-ng-click="addNewPlayer()" ng-hide="!createGame">Add new player</button>
-             <button id="startGame" data-ng-click="startGame()" ng-show="startGame">Start game</button>
 
 
 
@@ -56,6 +100,7 @@
 <script src="lib/angular/angular.js"></script>
 <script src="js/app.js"></script>
 <script src="js/controllers/StartGameController.js "></script>
+<script src="js/services/GameService.js "></script>
 
 </body>
 
