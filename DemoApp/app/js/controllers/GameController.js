@@ -21,6 +21,7 @@ whistApp.controller("GameController",
 
         $scope.startNewGame = function () {
             $scope.createGameBool = gameService.startNewGame();
+            var testObject = gameService.startNewGameTest();
         };
 
         /* Code below should be refactored*/
