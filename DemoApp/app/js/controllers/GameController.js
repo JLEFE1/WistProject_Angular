@@ -1,7 +1,7 @@
 'use strict';
 
-whistApp.controller("StartGameController",
-    function StartGameController($scope, gameService){
+whistApp.controller("GameController",
+    function GameController($scope, gameService, rankingService){
 
         $scope.startNewGame = function () {
             $scope.createGameBool = gameService.startNewGame();
