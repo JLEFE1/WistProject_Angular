@@ -3,51 +3,6 @@
 whistApp.controller("GameController",
     function GameController($scope, gameService, rankingService){
 
-        $scope.startNewGame = function () {
-            $scope.createGameBool = gameService.startNewGame();
-        };
-
-
-
-
-
-        /* Code below should be refactored*/
-
-
-
-
-        function RankingRow (maxLength) {
-            this.points = new Array();
-            this.maxLength = maxLength;
-        }
-
-        RankingRow.prototype.checkTotalPoints = function() {
-
-            var sum = 0;
-            for (var i = 0; i < this.maxLength; i++){
-                sum += parseInt(this.points[i]);
-            }
-
-            return sum == 0;
-        };
-
-        RankingRow.prototype.checkNumberOfPLayers = function(numberOfPlayers) {
-            return numberOfPlayers == this.maxLength;
-        };
-
-        function adjustStanding(pointsToAdd){
-
-            for (var i = 0; i < pointsToAdd.points.length; i++){
-                $scope.total[i] += parseInt(pointsToAdd.points[i]);
-
-            }
-
-        };
-
-        function addPointsToTable(){
-
-        };
-
         $scope.ranking = new Array();
         $scope.total = new Array();
 
@@ -63,6 +18,12 @@ whistApp.controller("GameController",
         $scope.showResultsBool = false;
 
         $scope.players = [];
+
+        $scope.startNewGame = function () {
+            $scope.createGameBool = gameService.startNewGame();
+        };
+
+        /* Code below should be refactored*/
 
         $scope.addNewPlayer = function(){
             if($scope.addPlayerForm.$valid) {
@@ -92,17 +53,9 @@ whistApp.controller("GameController",
 
         }
 
-        $scope.setFocus = function(bool){
-            var focus = true;
-            if (!bool){
-                focus = false;
-            }
-            return focus;
-        }
-
         $scope.addPoints = function(){
 
-            var rankingRow = new RankingRow($scope.players.length);
+            var rankingRow = rankingService.getRankingRow($scope.players.length);
 
             var points = document.querySelectorAll(".pointInput");
 
@@ -113,8 +66,8 @@ whistApp.controller("GameController",
 
             if(rankingRow.checkTotalPoints()){
                 $scope.ranking.push(rankingRow);
-                adjustStanding(rankingRow);
-                addPointsToTable();
+                $scope.total = rankingService.adjustStanding(rankingRow, $scope.total);
+                rankingService.addPointsToTable();
             }
 
 

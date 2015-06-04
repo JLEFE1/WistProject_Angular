@@ -42,7 +42,7 @@
                          </div>
 
                      </div>
-                     <input type="text" required placeholder="Add player" ng-hide="!createGameBool" ng-model="name">
+                     <input name="nameInputFiled" type="text" required placeholder="Add player" ng-hide="!createGameBool" ng-model="name">
                      <button type="submit" class="btn btn-default" id="addPlayer" data-ng-click="addNewPlayer(addPlayerForm)" ng-hide="!createGameBool">Add new player</button>
                      <button type="button" class="btn btn-default" id="startGame" data-ng-click="startGame()" ng-show="startGameBool">Start game</button>
                  </fieldset>
