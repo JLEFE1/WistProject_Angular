@@ -19,43 +19,52 @@
 
              <img ng-src="{{titleObject.imageUrl}}">
 
-             <div class="row" ng-hide="createGameBool">
-                 <div class="span11">
-                     <h2>Want to play a Game?</h2>
-                 </div>
-
-             </div>
-             <button type="button" class="btn btn-default" id="startNewGame" data-ng-click="startNewGame()" ng-hide="createGameBool">Start new game</button>
-
-             <div class="row" ng-hide="!createGameBool">
-                 <div class="span11">
-                     <h2>Add players</h2>
-                 </div>
-
-             </div>
-
-             <form name="addPlayerForm">
-                 <fieldset>
-                     <div ng-repeat="player in players" ng-hide="!createGameBool">
-                         <div class="span11">
-                             <h5>{{player.name}}</h5>
-                         </div>
-
+             <div id="newGame" ng-show="game.bools.createGameBool">
+                 <div class="row" >
+                     <div class="span11">
+                         <h2>Want to play a Game?</h2>
                      </div>
-                     <input name="nameInputFiled" type="text" required placeholder="Add player" ng-hide="!createGameBool" ng-model="name">
-                     <button type="submit" class="btn btn-default" id="addPlayer" data-ng-click="addNewPlayer(addPlayerForm)" ng-hide="!createGameBool">Add new player</button>
-                     <button type="button" class="btn btn-default" id="startGame" data-ng-click="startGame()" ng-show="startGameBool">Start game</button>
-                 </fieldset>
-             </form>
+
+                 </div>
+                 <button type="button" class="btn btn-default" id="startNewGame" data-ng-click="startNewGame()">Start new game</button>
+
+             </div>
 
 
-             <div id="resultTableDiv" ng-show="showResultsBool">
+             <div id="addingPlayersToTheGame" ng-show="game.bools.addPlayersBool">
+                 <div class="row">
+                     <div class="span11">
+                         <h2>Add players</h2>
+                     </div>
+
+                 </div>
+
+                 <form name="addPlayerForm">
+                     <fieldset>
+                         <div ng-repeat="player in game.players" >
+                             <div class="span11">
+                                 <h5>{{player.name}}</h5>
+                             </div>
+
+                         </div>
+                         <input name="nameInputFiled" type="text" required placeholder="Add player" ng-model="name">
+                         <button type="submit" class="btn btn-default" id="addPlayer" data-ng-click="addNewPlayer(addPlayerForm)">Add new player</button>
+                         <button type="button" class="btn btn-default" id="startGame" data-ng-click="startGame()" ng-show="game.bools.startGameBool">Start game</button>
+                     </fieldset>
+                 </form>
+             </div>
+
+             <div id="resultTableDiv" ng-show="game.bools.showResultsBool">
+                <!--
+                 <div class="span11">
+                     <h2>Standing</h2>
+                 </div>
 
                  <table id="addPointsTable">
                      <tbody id="addPointsTableBody">
                      <tr>
-                         <div class="span5"><td></td></div>
-                         <td ng-repeat="player in players track by $index">
+                         <td class="pointInput"></td>
+                         <td ng-repeat="player in game.players track by $index">
                              <input type="number" value=0 class="pointInput" name= "{{player.playerIndex}}">
                          </td>
                      </tr>
@@ -70,22 +79,59 @@
                     <thead id="resultTableHeader">
                         <tr>
                             <th>Nbr.</th>
-                            <th ng-repeat="player in players">{{player.name}}</th>
+                            <th ng-repeat="player in game.players">{{player.name}}</th>
                         </tr>
 
                     </thead>
                     <tbody id="resultTableBody">
                     <tr>
                         <th>Total</th>
-                        <th ng-repeat="points in total track by $index">{{points}}</th>
+                        <th ng-repeat="points in game.total track by $index">{{points}}</th>
                     </tr>
-                    <tr ng-repeat="rankingRow in ranking track by $index">
+                    <tr ng-repeat="rankingRow in game.ranking track by $index">
                         <th>{{$index + 1}}</th>
                         <th ng-repeat="point in rankingRow.points track by $index">{{point}}</th>
                     </tr>
 
                     </tbody>
-                </table>
+
+                    -->
+
+
+
+
+                 <div class="span11">
+                     <h2>Standing</h2>
+                 </div>
+
+                 <table id="addPointsTable">
+                     <tbody id="addPointsTableBody">
+                     <tr>
+                         <td ></td>
+                         <td ng-repeat="player in game.players track by $index">
+                             <input type="number" value=0 class="pointInput" name= "{{player.playerIndex}}">
+                         </td>
+                         <td class="addPointsButton">
+                             <button type="button" class="btn btn-default" id="addPoints" data-ng-click="addPoints()">+</button>
+                         </td>
+                     </tr>
+
+                     <tr>
+                         <td class="alignRight underLine rightLine">Name</td>
+                         <td ng-repeat="player in game.players" class="underLine">{{player.name}}</td>
+                     </tr>
+
+                     <tr>
+                         <td class="alignRight rightLine leftLine underLine">Total</td>
+                         <td ng-repeat="points in game.total track by $index" class="rightLine leftLine underLine">{{points}}</td>
+                     </tr>
+                     <tr ng-repeat="rankingRow in game.ranking track by $index">
+                         <td class="alignRight rightLine">{{$index + 1}}</td>
+                         <td ng-repeat="point in rankingRow.points track by $index">{{point}}</td>
+                     </tr>
+
+                     </tbody>
+                 </table>
              </div>
 
 

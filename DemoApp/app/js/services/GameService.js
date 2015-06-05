@@ -5,28 +5,31 @@ whistApp.factory('gameService', function () {
     var game = {
         ranking: new Array(),
         total: new Array(),
-        titleObject: {
-            name: "Whist",
-            imageUrl: "img/whist1.jpg"
-        },
         bools: {
             createGameBool: true,
+            addPlayersBool: false,
             startGameBool: false,
             showResultsBool: false
         },
         players: new Array()
     }
 
-    function startNewGame () {
-        return true;
+    var titleObject = {
+        name: "Whist",
+        imageUrl: "img/whist1.jpg"
     }
-    function startNewGameTest () {
+
+    function startNewGame () {
         return game;
+    }
+
+    function getTitleObject(){
+        return titleObject;
     }
 
     return {
         startNewGame: startNewGame,
-        startNewGameTest: startNewGameTest,
+        getTitleObject: getTitleObject,
         addPlayer: addPlayer
     }
 

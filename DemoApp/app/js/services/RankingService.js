@@ -36,14 +36,9 @@ whistApp.factory('rankingService', function () {
 
     };
 
-    function addPointsToTable(){
-
-    };
-
     return {
         getRankingRow:getRankingRow,
         adjustStanding:adjustStanding,
-        addPointsToTable:addPointsToTable
     }
 
 });

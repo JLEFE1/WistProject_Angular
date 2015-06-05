@@ -28,3 +28,28 @@ select, textarea {
   padding-left:6px;
   cursor:pointer;
 }
+
+th, td, .pointInput, .pointInputExtra, .addPointsButton {
+    width: 50px;
+    text-align: center;
+}
+
+.alignRight{
+    text-align: right;
+}
+
+td.underLine{
+    border-bottom: 1px solid white;
+}
+
+td.topLine{
+    border-top: 1px solid white;
+}
+
+td.rightLine{
+    border-right: 1px solid white;
+}
+
+td.leftLine{
+    border-left: 1px solid white;
+}
