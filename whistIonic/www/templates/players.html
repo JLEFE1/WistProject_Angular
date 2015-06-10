@@ -1,0 +1,12 @@
+<ion-view view-title="Players" ng-controller="PlayersController as vm">
+    <ion-content>
+        <h1>Players</h1>
+        <div class="list">
+            <a class="item item-icon-right" ng-repeat="player in vm.players"
+                    ng-click="vm.selectPlayer(player.id)">
+                {{player.firstName}} {{player.lastName}}
+                <i class="icon ion-chevron-right icon accessory"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

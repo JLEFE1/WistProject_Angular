@@ -1,0 +1,12 @@
+<ion-view view-title="Games" ng-controller="GamesController as vm">
+    <ion-content>
+        <h1>Games</h1>
+        <div class="list">
+            <a class="item item-icon-right" ng-repeat="game in vm.games"
+               ng-click="vm.selectGame(game.id)">
+                {{game.title}}
+                <i class="icon ion-chevron-right icon accessory"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>
