@@ -10,7 +10,7 @@
          var vm = this;
 
          vm.startWhist = function startWhist(){
-             $state.go("app.whist");
+             $state.go("games.whist");
          }
 
     };

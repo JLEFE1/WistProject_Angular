@@ -23,12 +23,60 @@ angular.module('gamesApp', ['ionic'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
+  .state('home', {
+    abstract: true,
+    url: "/home",
+    templateUrl: "templates/home.html"
+  })
+
+  .state('home.homepage', {
+    url: "/homepage",
+    views: {
+      'tab-homepage': {
+        templateUrl: "templates/homepage.html"
+      }
+    }
+  })
+
+  .state('home.players', {
+    url: "/players",
+    views: {
+      'tab-players': {
+        templateUrl: "templates/players.html"
+      }
+    }
+  })
+
+  .state('home.games', {
+    url: "/games",
+    views: {
+      'tab-games': {
+        templateUrl: "templates/games.html"
+      }
+    }
+  })
+
+
+      .state('players', {
+        url: "/players",
+        abstract: true,
+        templateUrl: "templates/menu-players.html"
+      })
+
+
+      .state('games', {
+        url: "/games",
+        abstract: true,
+        templateUrl: "templates/menu-games.html"
+      })
+
+
   .state('app', {
     url: "/app",
     abstract: true,
     templateUrl: "templates/menu.html"
   })
-  .state('app.games', {
+  .state('games.games', {
     url: "/games",
     views: {
       'menuContent': {
@@ -37,7 +85,7 @@ angular.module('gamesApp', ['ionic'])
       }
     }
   })
-  .state('app.game', {
+  .state('games.game', {
     url: "/games/game/:id",
     views: {
       'menuContent': {
@@ -46,7 +94,7 @@ angular.module('gamesApp', ['ionic'])
       }
     }
   })
-  .state('app.players', {
+  .state('players.players', {
     url: "/players",
     views: {
       'menuContent': {
@@ -55,7 +103,7 @@ angular.module('gamesApp', ['ionic'])
       }
     }
   })
-  .state('app.player', {
+  .state('players.player', {
     url: "/players/player/:id",
     views: {
       'menuContent': {
@@ -64,7 +112,7 @@ angular.module('gamesApp', ['ionic'])
       }
     }
   })
-  .state('app.rules', {
+  .state('games.rules', {
     url: "/rules",
     views: {
       'menuContent': {
@@ -73,7 +121,7 @@ angular.module('gamesApp', ['ionic'])
       }
     }
   })
-  .state('app.whist', {
+  .state('games.whist', {
     url: "/whist",
     views: {
       'menuContent': {
@@ -84,5 +132,5 @@ angular.module('gamesApp', ['ionic'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/players');
+  $urlRouterProvider.otherwise('/home/homepage');
 });

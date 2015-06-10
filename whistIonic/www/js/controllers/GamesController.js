@@ -12,7 +12,7 @@
 
          vm.games = games;
          vm.selectGame = function selectGame(gameId) {
-             $state.go("app.game", {id: gameId});
+             $state.go("games.game", {id: gameId});
          }
 
     };
